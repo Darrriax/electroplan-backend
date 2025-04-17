@@ -11,6 +11,16 @@ public class PasswordsMatchValidator implements ConstraintValidator<PasswordsMat
         if (request.getPassword() == null || request.getPasswordConfirmation() == null) {
             return false;
         }
-        return request.getPassword().equals(request.getPasswordConfirmation());
+
+        boolean isValid = request.getPassword().equals(request.getPasswordConfirmation());
+
+        if (!isValid) {
+            context.disableDefaultConstraintViolation();
+            context.buildConstraintViolationWithTemplate("Паролі повинні співпадати")
+                    .addPropertyNode("passwordConfirmation")
+                    .addConstraintViolation();
+        }
+
+        return isValid;
     }
 }

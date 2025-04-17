@@ -3,6 +3,7 @@ package com.example.electroplan_backend.controllers;
 import com.example.electroplan_backend.dto.requests.UserLoginRequest;
 import com.example.electroplan_backend.dto.requests.UserRegistrationRequest;
 import com.example.electroplan_backend.dto.responses.JwtAuthenticationResponse;
+import com.example.electroplan_backend.dto.responses.LoginResponse;
 import com.example.electroplan_backend.exceptions.user.InvalidCredentialsException;
 import com.example.electroplan_backend.exceptions.user.UserAlreadyExistsException;
 import com.example.electroplan_backend.services.AuthenticationService;
@@ -48,9 +49,8 @@ public class AuthorizationController {
      * @return JWT токен
      */
     @PostMapping("/login")
-    public ResponseEntity<JwtAuthenticationResponse> signIn(@Valid @RequestBody UserLoginRequest request) throws InvalidCredentialsException {
-        JwtAuthenticationResponse response = authenticationService.signIn(request);
-        // kafkaProducerService.sendUserActivityEvent(request.getEmail(), "login"); //============
+    public ResponseEntity<LoginResponse> signIn(@Valid @RequestBody UserLoginRequest request) throws InvalidCredentialsException {
+        LoginResponse response = authenticationService.signIn(request);
         return ResponseEntity.ok(response);
     }
 
@@ -60,17 +60,12 @@ public ResponseEntity<?> logout(HttpServletRequest request, Authentication authe
     String authHeader = request.getHeader("Authorization");
 
     if (StringUtils.isNotBlank(authHeader) && authHeader.startsWith("Bearer ")) {
-        String jwt = authHeader.substring(7); // Видаляємо префікс "Bearer "
+        String jwt = authHeader.substring(7);
 
-        // Витягуємо ім'я користувача з токена
         String usernameFromToken = jwtService.extractUserName(jwt);
-
-        // Отримуємо ім'я користувача з Authentication
         String usernameFromAuth = authentication.getName();
 
-        // Перевіряємо, чи ім'я користувача з токена співпадає з аутентифікованим користувачем
         if (usernameFromToken != null && usernameFromToken.equals(usernameFromAuth)) {
-            // Додаємо токен у чорний список
             jwtService.blacklistToken(jwt);
             return ResponseEntity.ok("Успішний вихід з системи");
         } else {

@@ -4,6 +4,8 @@ import com.example.electroplan_backend.dto.entities.UserEntity;
 import com.example.electroplan_backend.dto.requests.UserLoginRequest;
 import com.example.electroplan_backend.dto.requests.UserRegistrationRequest;
 import com.example.electroplan_backend.dto.responses.JwtAuthenticationResponse;
+import com.example.electroplan_backend.dto.responses.LoginResponse;
+import com.example.electroplan_backend.dto.responses.UserShortResponse;
 import com.example.electroplan_backend.exceptions.user.InvalidCredentialsException;
 import com.example.electroplan_backend.exceptions.user.UserAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -44,20 +48,33 @@ public class AuthenticationService {
      * @return JWT токен
      * @throws InvalidCredentialsException якщо ім'я або пароль неправильні
      */
-    public JwtAuthenticationResponse signIn(UserLoginRequest request) {
+    public LoginResponse signIn(UserLoginRequest request) {
         try {
             authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                    request.getEmail(),
-                    request.getPassword()
-                )
+                    new UsernamePasswordAuthenticationToken(
+                            request.getEmail(),
+                            request.getPassword()
+                    )
             );
         } catch (BadCredentialsException e) {
             throw new InvalidCredentialsException("Неправильне ім'я користувача або пароль");
         }
 
         UserEntity user = userService.getByEmail(request.getEmail());
-        var jwt = jwtService.generateToken(user);
-        return new JwtAuthenticationResponse(jwt);
+        String jwt = jwtService.generateToken(user);
+
+        // Створюємо UserShortResponse
+        UserShortResponse userResponse = new UserShortResponse();
+        userResponse.setId(user.getId());
+        userResponse.setName(user.getName());
+        userResponse.setSurname(user.getSurname());
+        userResponse.setPhoneNumber(user.getPhoneNumber());
+        userResponse.setEmail(user.getEmail());
+
+        // Повертаємо об'єкт з токеном і даними користувача
+        return LoginResponse.builder()
+                .token(jwt)
+                .user(userResponse)
+                .build();
     }
 }

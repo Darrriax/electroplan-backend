@@ -1,35 +1,35 @@
 package com.example.electroplan_backend.dto.responses;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class ProjectResponse {
 
         private Long id;
 
-        private String displayName;
+        private String mainImage;
 
-        private UserShortResponse owner;
+        private String title;
 
-        private String bodyType;
+        private String customer;
 
-        private Integer price;
+        private String description;
 
-        private String manufacturer;
+        private String address;
 
-        private String vinCode;
+        private LocalDateTime createdAt;
 
-        private Boolean wasInAccident;
+        private LocalDateTime updatedAt;
 
-        private Boolean isTrade;
-
-        private Boolean isAvailable;
-
-        private Integer mileage;
-
-        private String technicalCondition;
-
-        private ProjectImageResponse images;
+        // Тимчасово зберігаємо у вигляді масиву об'єктів або рядків
+        private List<Object> projectData;
 }

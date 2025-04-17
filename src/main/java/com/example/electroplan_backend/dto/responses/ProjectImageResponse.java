@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class ProjectImageResponse {
-    private Long carId;
-    private String mainImageUrl;
-    private String[] imagesUrl;
+    private Long projectId;
+    private String imageUrl;
 }

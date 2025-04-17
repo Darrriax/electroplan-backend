@@ -5,18 +5,14 @@ import lombok.Data;
 @Data
 public class ProjectShortResponse {
 
-        private String mainImageURL;
+    private Long id;
 
-        private Long id;
+    private String mainImage;
 
-        private String displayName;
+    private String title;
 
-        private Integer price;
+    private String customer;
 
-        private String vinCode;
-
-        private Boolean wasInAccident;
-
-        private Integer mileage;
+    private String lastUpdated;
 
 }

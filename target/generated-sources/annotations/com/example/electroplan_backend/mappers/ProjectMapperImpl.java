@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-16T20:25:28+0300",
+    date = "2025-04-17T14:49:51+0300",
     comments = "version: 1.6.0, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
 @Component
@@ -23,18 +23,6 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         ProjectEntity projectEntity = new ProjectEntity();
 
-        projectEntity.setDisplayName( carRequest.getDisplayName() );
-        projectEntity.setSellerId( carRequest.getSellerId() );
-        projectEntity.setBodyType( carRequest.getBodyType() );
-        projectEntity.setPrice( carRequest.getPrice() );
-        projectEntity.setManufacturer( carRequest.getManufacturer() );
-        projectEntity.setVinCode( carRequest.getVinCode() );
-        projectEntity.setWasInAccident( carRequest.getWasInAccident() );
-        projectEntity.setIsTrade( carRequest.getIsTrade() );
-        projectEntity.setIsAvailable( carRequest.getIsAvailable() );
-        projectEntity.setMileage( carRequest.getMileage() );
-        projectEntity.setTechnicalCondition( carRequest.getTechnicalCondition() );
-
         return projectEntity;
     }
 
@@ -44,21 +32,17 @@ public class ProjectMapperImpl implements ProjectMapper {
             return null;
         }
 
-        ProjectResponse projectResponse = new ProjectResponse();
+        ProjectResponse.ProjectResponseBuilder projectResponse = ProjectResponse.builder();
 
-        projectResponse.setId( carEntity.getId() );
-        projectResponse.setDisplayName( carEntity.getDisplayName() );
-        projectResponse.setBodyType( carEntity.getBodyType() );
-        projectResponse.setPrice( carEntity.getPrice() );
-        projectResponse.setManufacturer( carEntity.getManufacturer() );
-        projectResponse.setVinCode( carEntity.getVinCode() );
-        projectResponse.setWasInAccident( carEntity.getWasInAccident() );
-        projectResponse.setIsTrade( carEntity.getIsTrade() );
-        projectResponse.setIsAvailable( carEntity.getIsAvailable() );
-        projectResponse.setMileage( carEntity.getMileage() );
-        projectResponse.setTechnicalCondition( carEntity.getTechnicalCondition() );
+        projectResponse.id( carEntity.getId() );
+        projectResponse.title( carEntity.getTitle() );
+        projectResponse.customer( carEntity.getCustomer() );
+        projectResponse.description( carEntity.getDescription() );
+        projectResponse.address( carEntity.getAddress() );
+        projectResponse.createdAt( carEntity.getCreatedAt() );
+        projectResponse.updatedAt( carEntity.getUpdatedAt() );
 
-        return projectResponse;
+        return projectResponse.build();
     }
 
     @Override
@@ -70,11 +54,8 @@ public class ProjectMapperImpl implements ProjectMapper {
         ProjectShortResponse projectShortResponse = new ProjectShortResponse();
 
         projectShortResponse.setId( carEntity.getId() );
-        projectShortResponse.setDisplayName( carEntity.getDisplayName() );
-        projectShortResponse.setPrice( carEntity.getPrice() );
-        projectShortResponse.setVinCode( carEntity.getVinCode() );
-        projectShortResponse.setWasInAccident( carEntity.getWasInAccident() );
-        projectShortResponse.setMileage( carEntity.getMileage() );
+        projectShortResponse.setTitle( carEntity.getTitle() );
+        projectShortResponse.setCustomer( carEntity.getCustomer() );
 
         return projectShortResponse;
     }

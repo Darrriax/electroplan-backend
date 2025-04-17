@@ -49,5 +49,4 @@ public class UserEntity implements UserDetails {
         return email;
     }
 
-
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-16T20:25:28+0300",
+    date = "2025-04-17T14:49:52+0300",
     comments = "version: 1.6.0, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
 @Component
@@ -39,8 +39,7 @@ public class ProjectImageMapperImpl implements ProjectImageMapper {
 
         ProjectImageResponse projectImageResponse = new ProjectImageResponse();
 
-        projectImageResponse.setMainImageUrl( carImage.getMainImageUrl() );
-        projectImageResponse.setImagesUrl( stringListToStringArray( carImage.getImagesUrl() ) );
+        projectImageResponse.setProjectId( carImage.getProjectId() );
 
         return projectImageResponse;
     }
@@ -56,20 +55,5 @@ public class ProjectImageMapperImpl implements ProjectImageMapper {
         }
 
         return list;
-    }
-
-    protected String[] stringListToStringArray(List<String> list) {
-        if ( list == null ) {
-            return null;
-        }
-
-        String[] stringTmp = new String[list.size()];
-        int i = 0;
-        for ( String string : list ) {
-            stringTmp[i] = string;
-            i++;
-        }
-
-        return stringTmp;
     }
 }
