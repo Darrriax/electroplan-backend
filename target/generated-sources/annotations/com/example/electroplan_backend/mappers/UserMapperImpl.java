@@ -3,50 +3,16 @@ package com.example.electroplan_backend.mappers;
 import com.example.electroplan_backend.dto.entities.UserEntity;
 import com.example.electroplan_backend.dto.requests.UserRegistrationRequest;
 import com.example.electroplan_backend.dto.responses.UserProfileResponse;
-import com.example.electroplan_backend.dto.responses.UserShortResponse;
-import com.example.electroplan_backend.dto.responses.UserUpdateResponse;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-17T15:02:28+0300",
+    date = "2025-04-18T19:00:20+0300",
     comments = "version: 1.6.0, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
-
-    @Override
-    public UserShortResponse toUserResponse(UserEntity userEntity) {
-        if ( userEntity == null ) {
-            return null;
-        }
-
-        UserShortResponse userShortResponse = new UserShortResponse();
-
-        userShortResponse.setId( userEntity.getId() );
-        userShortResponse.setName( userEntity.getName() );
-        userShortResponse.setSurname( userEntity.getSurname() );
-
-        return userShortResponse;
-    }
-
-    @Override
-    public UserUpdateResponse toUserUpdateResponse(UserEntity userEntity) {
-        if ( userEntity == null ) {
-            return null;
-        }
-
-        UserUpdateResponse userUpdateResponse = new UserUpdateResponse();
-
-        userUpdateResponse.setId( userEntity.getId() );
-        userUpdateResponse.setName( userEntity.getName() );
-        userUpdateResponse.setSurname( userEntity.getSurname() );
-        userUpdateResponse.setPhoneNumber( userEntity.getPhoneNumber() );
-        userUpdateResponse.setEmail( userEntity.getEmail() );
-
-        return userUpdateResponse;
-    }
 
     @Override
     public UserEntity toUserEntity(UserRegistrationRequest userRegistrationRequest) {
@@ -76,8 +42,8 @@ public class UserMapperImpl implements UserMapper {
         userProfileResponse.setId( byEmail.getId() );
         userProfileResponse.setName( byEmail.getName() );
         userProfileResponse.setSurname( byEmail.getSurname() );
-        userProfileResponse.setEmail( byEmail.getEmail() );
         userProfileResponse.setPhoneNumber( byEmail.getPhoneNumber() );
+        userProfileResponse.setEmail( byEmail.getEmail() );
 
         return userProfileResponse;
     }

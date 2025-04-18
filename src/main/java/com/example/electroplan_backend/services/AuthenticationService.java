@@ -5,7 +5,7 @@ import com.example.electroplan_backend.dto.requests.UserLoginRequest;
 import com.example.electroplan_backend.dto.requests.UserRegistrationRequest;
 import com.example.electroplan_backend.dto.responses.JwtAuthenticationResponse;
 import com.example.electroplan_backend.dto.responses.LoginResponse;
-import com.example.electroplan_backend.dto.responses.UserShortResponse;
+import com.example.electroplan_backend.dto.responses.UserProfileResponse;
 import com.example.electroplan_backend.exceptions.user.InvalidCredentialsException;
 import com.example.electroplan_backend.exceptions.user.UserAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -64,7 +62,7 @@ public class AuthenticationService {
         String jwt = jwtService.generateToken(user);
 
         // Створюємо UserShortResponse
-        UserShortResponse userResponse = new UserShortResponse();
+        UserProfileResponse userResponse = new UserProfileResponse();
         userResponse.setId(user.getId());
         userResponse.setName(user.getName());
         userResponse.setSurname(user.getSurname());

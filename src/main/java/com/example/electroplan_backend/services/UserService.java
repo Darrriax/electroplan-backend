@@ -1,7 +1,9 @@
 package com.example.electroplan_backend.services;
 
 import com.example.electroplan_backend.dto.entities.UserEntity;
+import com.example.electroplan_backend.dto.requests.ChangePasswordRequest;
 import com.example.electroplan_backend.dto.requests.UserRegistrationRequest;
+import com.example.electroplan_backend.dto.requests.UserUpdateRequest;
 import com.example.electroplan_backend.mappers.UserMapper;
 import com.example.electroplan_backend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +26,7 @@ public class UserService implements UserDetailsService {
     /**
      * Створення користувача
      *
-     * @param user дані користувача
+     * @param user         дані користувача
      * @param hashPassword чи хешувати пароль
      * @return користувач
      */
@@ -42,15 +44,47 @@ public class UserService implements UserDetailsService {
     }
 
     /**
-     * Зміна паролю користувача з хешуванням
-     *
-     * @return користувач
+     * Оновлення профілю користувача
      */
-    public UserEntity changePassword(String email, String newPassword) {
+    public UserEntity updateUserProfile(String currentEmail, UserUpdateRequest request) {
+        UserEntity user = repository.findByEmail(currentEmail)
+                .orElseThrow(() -> new UsernameNotFoundException("Користувача не знайдено"));
+
+        if (request.getName() != null && !request.getName().equals(user.getName())) {
+            user.setName(request.getName());
+        }
+
+        if (request.getSurname() != null && !request.getSurname().equals(user.getSurname())) {
+            user.setSurname(request.getSurname());
+        }
+
+        if (request.getPhoneNumber() != null && !request.getPhoneNumber().equals(user.getPhoneNumber())) {
+            user.setPhoneNumber(request.getPhoneNumber());
+        }
+
+        if (request.getEmail() != null && !request.getEmail().equals(user.getEmail())) {
+            user.setEmail(request.getEmail());
+        }
+
+        return repository.save(user);
+    }
+
+    /**
+     * Зміна паролю з перевіркою старого та підтвердженням нового
+     */
+    public UserEntity changePasswordSecure(String email, ChangePasswordRequest request) {
         UserEntity user = getByEmail(email);
-        user.setPassword(passwordEncoder.encode(newPassword));
-        repository.save(user);
-        return user;
+
+        if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
+            throw new RuntimeException("Старий пароль введено невірно");
+        }
+
+        if (!request.getPassword().equals(request.getPasswordConfirmation())) {
+            throw new RuntimeException("Новий пароль і підтвердження не співпадають");
+        }
+
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        return repository.save(user);
     }
 
     /**
@@ -86,14 +120,6 @@ public class UserService implements UserDetailsService {
     @Override
     public UserEntity loadUserByUsername(String username) throws UsernameNotFoundException {
         return getByEmail(username);
-    }
-
-
-    public UserEntity changeEmail(String email, String newEmail) {
-        UserEntity user = getByEmail(email);
-        user.setEmail(newEmail);
-        repository.save(user);
-        return user;
     }
 
     public UserEntity save(UserEntity user) {

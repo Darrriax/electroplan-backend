@@ -1,11 +1,9 @@
 package com.example.electroplan_backend.controllers;
 
 import com.example.electroplan_backend.dto.entities.UserEntity;
-import com.example.electroplan_backend.dto.requests.ChangeEmailRequest;
-import com.example.electroplan_backend.dto.requests.UserPhoneRequest;
+import com.example.electroplan_backend.dto.requests.ChangePasswordRequest;
 import com.example.electroplan_backend.dto.requests.UserUpdateRequest;
 import com.example.electroplan_backend.dto.responses.*;
-import com.example.electroplan_backend.exceptions.user.InvalidUserParametersException;
 import com.example.electroplan_backend.exceptions.user.UserAlreadyExistsException;
 import com.example.electroplan_backend.mappers.ProjectMapper;
 import com.example.electroplan_backend.mappers.UserMapper;
@@ -35,47 +33,10 @@ public class UserController {
      * @return UserResponse з інформацією про користувача
      */
     @GetMapping("/{id}")
-    public ResponseEntity<UserShortResponse> getUserById(@PathVariable Long id) {
+    public ResponseEntity<UserProfileResponse> getUserById(@PathVariable Long id) {
         UserEntity userEntity = userService.getById(id);
-        UserShortResponse userResponse = userMapper.toUserResponse(userEntity);
+        UserProfileResponse userResponse = userMapper.toUserProfileResponse(userEntity);
         return ResponseEntity.ok(userResponse);
-    }
-
-    /**
-     * Отримати номер телефону користувача за допомогою запиту
-     *
-     * @param request запит з ID користувача
-     * @return UserPhoneResponse з номером телефону
-     */
-    @PostMapping("/phone")
-    public ResponseEntity<UserPhoneResponse> getUserPhone(@Valid @RequestBody UserPhoneRequest request) {
-        UserEntity userEntity = userService.getById(request.getUserId());
-        return ResponseEntity.ok(new UserPhoneResponse(userEntity.getPhoneNumber()));
-    }
-
-
-    /**
-     * Change the user's email.
-     *
-     * @param request        Contains the new email.
-     * @param authentication The authentication object containing the current user's details.
-     * @return A new JWT token with the updated email.
-     */
-    @PutMapping("/email")
-    public ResponseEntity<JwtAuthenticationResponse> changeEmail(
-            @Valid @RequestBody ChangeEmailRequest request,
-            Authentication authentication) {
-
-        String newEmail = request.getNewEmail();
-
-        // Check if the new email is already in use
-        if (userService.existsByEmail(newEmail)) {
-            throw new UserAlreadyExistsException("Email is already registered: " + request.getNewEmail());
-        }
-        String currentEmail = authentication.getName();
-        // Generate a new JWT token with the updated email
-        String newJwtToken = jwtService.generateToken(userService.changeEmail(currentEmail, newEmail));
-        return ResponseEntity.ok(new JwtAuthenticationResponse(newJwtToken));
     }
 
 
@@ -87,36 +48,39 @@ public class UserController {
      * @return Відповідь з оновленими даними користувача.
      */
     @PutMapping("/profile")
-    public ResponseEntity<UserUpdateResponse> updateUserProfile (
+    public ResponseEntity<ReloginResponse> updateUserProfile (
             @Valid @RequestBody UserUpdateRequest request,
-            Authentication authentication) throws InvalidUserParametersException {
+            Authentication authentication) {
 
         String currentEmail = authentication.getName();
+        boolean emailChanged = request.getEmail() != null && !request.getEmail().equals(currentEmail);
 
-
-
-        if (request.getPassword() != null) {
-            userService.changePassword(currentEmail, request.getPassword());
+        if (emailChanged && userService.existsByEmail(request.getEmail())) {
+            throw new UserAlreadyExistsException("Email вже використовується: " + request.getEmail());
         }
 
-        // Отримуємо користувача за поточним email
-        UserEntity userEntity = userService.getByEmail(currentEmail);
+        UserEntity updatedUser = userService.updateUserProfile(currentEmail, request);
+        UserProfileResponse userResponse = userMapper.toUserProfileResponse(updatedUser);
 
-        if (request.getName() != null) {
-            userEntity.setName(request.getName());
+        // Генеруємо новий токен тільки якщо змінився email
+        if (emailChanged) {
+            String newToken = jwtService.generateToken(updatedUser);
+            String message = "Email змінено. Будь ласка, увійдіть знову";
+            return ResponseEntity.ok(new ReloginResponse(newToken, userResponse, message));
         }
 
-        if (request.getSurname() != null) {
-            userEntity.setSurname(request.getSurname());
-        }
+        return ResponseEntity.ok(new ReloginResponse(null, userResponse, null)); // без повідомлення
+    }
 
-        if (request.getPhoneNumber() != null) {
-            userEntity.setPhoneNumber(request.getPhoneNumber());
-        }
+    @PutMapping("/password")
+    public ResponseEntity<String> changePassword(
+            @Valid @RequestBody ChangePasswordRequest request,
+            Authentication authentication) {
 
-        // Мапимо оновлений користувач на DTO для відповіді
-        UserUpdateResponse userResponse = userMapper.toUserUpdateResponse(userService.save(userEntity));
-        return ResponseEntity.ok(userResponse);
+        String currentEmail = authentication.getName();
+        userService.changePasswordSecure(currentEmail, request);
+
+        return ResponseEntity.ok("Пароль успішно змінено");
     }
 
 
@@ -134,7 +98,7 @@ public class UserController {
         UserEntity byEmail = userService.getByEmail(currentEmail);
 
         UserProfileResponse userProfileResponse = userMapper.toUserProfileResponse(byEmail);
-        userProfileResponse.setUsersProjects(projectService.getAllByUserId(byEmail.getId()));
+//        userProfileResponse.setUsersProjects(projectService.getAllByUserId(byEmail.getId()));
         return ResponseEntity.ok(userProfileResponse);
     }
 }
