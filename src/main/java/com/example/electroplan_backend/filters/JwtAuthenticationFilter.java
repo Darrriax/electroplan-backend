@@ -34,6 +34,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             "/example",
             "/auth/logout",
             "/users/phone",
+            "/users/change-password",
             "/users/profile",
             "/users/email",
             "/project-images/add",

@@ -69,20 +69,21 @@ public class UserController {
             return ResponseEntity.ok(new ReloginResponse(newToken, userResponse, message));
         }
 
-        return ResponseEntity.ok(new ReloginResponse(null, userResponse, null)); // без повідомлення
+        return ResponseEntity.ok(new ReloginResponse(null, userResponse, "Дані користувача успішно змінено"));
     }
 
-    @PutMapping("/password")
-    public ResponseEntity<String> changePassword(
+    @PutMapping("/change-password")
+    public ResponseEntity<MessageResponse> changePassword(
             @Valid @RequestBody ChangePasswordRequest request,
             Authentication authentication) {
 
-        String currentEmail = authentication.getName();
-        userService.changePasswordSecure(currentEmail, request);
+//        System.out.println("Change password request від: " + authentication.getName());
 
-        return ResponseEntity.ok("Пароль успішно змінено");
+        String email = authentication.getName();
+        userService.changePassword(email, request);
+
+        return ResponseEntity.ok(new MessageResponse("Пароль успішно змінено"));
     }
-
 
     /**
      * Отримання даних користувача.

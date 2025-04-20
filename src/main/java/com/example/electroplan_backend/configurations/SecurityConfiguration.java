@@ -47,6 +47,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(request -> request
                         // Можно указать конкретный путь, * - 1 уровень вложенности, ** - любое количество уровней вложенности
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/users/change-password").authenticated()
+                        .requestMatchers("/users/**").authenticated()
                         .requestMatchers("/user-images/{userId}/profile-picture").permitAll()
                         .requestMatchers("/user-banners/{userId}/profile-banner").permitAll()
                         .requestMatchers("/swagger-ui/**", "/swagger-resources/*", "/v3/api-docs/**").permitAll()

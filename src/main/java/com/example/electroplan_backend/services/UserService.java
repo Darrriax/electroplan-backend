@@ -4,6 +4,9 @@ import com.example.electroplan_backend.dto.entities.UserEntity;
 import com.example.electroplan_backend.dto.requests.ChangePasswordRequest;
 import com.example.electroplan_backend.dto.requests.UserRegistrationRequest;
 import com.example.electroplan_backend.dto.requests.UserUpdateRequest;
+import com.example.electroplan_backend.exceptions.password.InvalidOldPasswordException;
+import com.example.electroplan_backend.exceptions.password.InvalidPasswordException;
+import com.example.electroplan_backend.exceptions.password.PasswordsDoNotMatchException;
 import com.example.electroplan_backend.mappers.UserMapper;
 import com.example.electroplan_backend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -69,23 +72,29 @@ public class UserService implements UserDetailsService {
         return repository.save(user);
     }
 
-    /**
-     * Зміна паролю з перевіркою старого та підтвердженням нового
-     */
-    public UserEntity changePasswordSecure(String email, ChangePasswordRequest request) {
-        UserEntity user = getByEmail(email);
+    public void changePassword(String email, ChangePasswordRequest request) {
+        UserEntity user = repository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Користувача не знайдено"));
 
-        if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
-            throw new RuntimeException("Старий пароль введено невірно");
+        // Перевірка підтвердження нового пароля
+        if (!request.getPassword().equals(request.getPasswordConfirmation())) {
+            throw new PasswordsDoNotMatchException("Новий пароль і його підтвердження не співпадають");
         }
 
-        if (!request.getPassword().equals(request.getPasswordConfirmation())) {
-            throw new RuntimeException("Новий пароль і підтвердження не співпадають");
+        // Перевірка старого пароля
+        if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
+            throw new InvalidOldPasswordException("Старий пароль неправильний");
+        }
+
+        // Перевірка, що новий пароль не такий самий, як старий
+        if (passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new InvalidPasswordException("Новий пароль не може бути таким самим, як старий");
         }
 
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        return repository.save(user);
+        repository.save(user);
     }
+
 
     /**
      * Отримання користувача за email
