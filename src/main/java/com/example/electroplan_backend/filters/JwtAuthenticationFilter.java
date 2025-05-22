@@ -29,7 +29,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserService userService;
 
-    // Список захищених URL
+    // List of protected URLs
     private static final List<String> PROTECTED_URLS = List.of(
             "/example",
             "/auth/logout",
@@ -37,6 +37,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             "/users/change-password",
             "/users/profile",
             "/users/email",
+            "/projects/**",
             "/project-images/add",
             "/project-images/add-multiple",
             "/project-images/get-all",
@@ -56,13 +57,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String requestURI = request.getRequestURI();
 
-        // Якщо URL не захищений, пропускаємо запит без перевірки
+        // Skip unprotected URLs
         if (!isProtected(requestURI)) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // Отримання токена
+        // Get token
         var authHeader = request.getHeader(HEADER_NAME);
         if (StringUtils.isEmpty(authHeader) || !StringUtils.startsWith(authHeader, BEARER_PREFIX)) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
@@ -70,7 +71,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        // Отримуємо користувача з токена
+        // Get user from token
         String username;
         String jwt;
 
@@ -79,7 +80,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             username = jwtService.extractUserName(jwt);
         } catch (Exception e) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            response.getWriter().write("Access Denied: "+ e.getMessage());
+            response.getWriter().write("Access Denied: " + e.getMessage());
             return;
         }
 
@@ -93,7 +94,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
-            // Якщо токен валідний, аутентифікуємо користувача
+            // If token is valid, authenticate user
             if (jwtService.isTokenValid(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,

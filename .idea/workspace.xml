@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9595cc05-0672-42cb-88c2-93397df66d5e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/ElectroplanBackendApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/configurations/CryptConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/configurations/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/controllers/AuthorizationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/controllers/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/documents/ProjectImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/entities/ImageType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/entities/ProjectEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/entities/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/requests/ChangeEmailRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/requests/ChangePasswordRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/requests/ProjectImageRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/requests/ProjectRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/requests/UserLoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/requests/UserRegistrationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/requests/UserUpdateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/JwtAuthenticationResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/LoginResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/MessageResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/ProjectImageResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/ProjectPageResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/ProjectResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/ProjectShortResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/ReloginResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/UserProfileResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto/responses/UserUpdateResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/handlers/AuthExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/handlers/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/handlers/ProjectExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/handlers/UserBannersExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/handlers/UserExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/password/InvalidOldPasswordException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/password/InvalidPasswordException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/password/PasswordsDoNotMatchException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/project/ProjectNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/user/InvalidCredentialsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/user/InvalidUserParametersException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/user/UserAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/exceptions/userbanner/InvalidImageTypeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/filters/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/mappers/ProjectImageMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/mappers/ProjectMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/mappers/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/repositories/ProjectImageRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/repositories/ProjectRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/services/AuthenticationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/services/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/services/ProjectImageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/services/ProjectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/services/TokenBlacklistService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/validations/AtLeastOneFieldNotEmpty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/validations/AtLeastOneFieldNotEmptyValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/validations/PasswordsMatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/validations/PasswordsMatchValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/electroplan_backend/ElectroplanBackendApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/ElectroplanBackendApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/configurations/CryptConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/configurations/SecurityConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/controllers/AuthorizationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/documents/ProjectImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/entities/ImageType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/entities/ProjectEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/entities/UserEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/requests/ChangeEmailRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/requests/ChangePasswordRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/requests/ProjectImageRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/requests/ProjectRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/requests/UserLoginRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/requests/UserRegistrationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/requests/UserUpdateRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/JwtAuthenticationResponse$JwtAuthenticationResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/JwtAuthenticationResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/LoginResponse$LoginResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/LoginResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/MessageResponse$MessageResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/MessageResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/ProjectImageResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/ProjectPageResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/ProjectResponse$ProjectResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/ProjectResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/ProjectShortResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/ReloginResponse$ReloginResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/ReloginResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/UserProfileResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/dto/responses/UserUpdateResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/handlers/AuthExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/handlers/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/handlers/ProjectExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/handlers/UserBannersExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/handlers/UserExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/password/InvalidOldPasswordException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/password/InvalidPasswordException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/password/PasswordsDoNotMatchException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/project/ProjectNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/user/InvalidCredentialsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/user/InvalidUserParametersException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/user/UserAlreadyExistsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/exceptions/userbanner/InvalidImageTypeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/filters/JwtAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/mappers/ProjectImageMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/mappers/ProjectImageMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/mappers/ProjectMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/mappers/ProjectMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/mappers/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/mappers/UserMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/repositories/ProjectImageRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/repositories/ProjectRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/services/AuthenticationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/services/JwtService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/services/ProjectImageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/services/ProjectService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/services/TokenBlacklistService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/services/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/validations/AtLeastOneFieldNotEmpty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/validations/AtLeastOneFieldNotEmptyValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/validations/PasswordsMatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/electroplan_backend/validations/PasswordsMatchValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/electroplan_backend/mappers/ProjectImageMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/electroplan_backend/mappers/ProjectMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/electroplan_backend/mappers/UserMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.electroplan_backend.ElectroplanBackendApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.electroplan_backend.ElectroplanBackendApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/electroplan_backend/ElectroplanBackendApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vczj4MS8ZMJsRbrrTEm2PPooZb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;HTTP Request.ElectroplanBackendApplication | #1.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ElectroplanBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/daria/electroplan-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/dto" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend/services" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/electroplan_backend" />
+      <recent name="$PROJECT_DIR$/.idea" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.electroplan_backend.exceptions.password" />
+      <recent name="com.example.electroplan_backend.dto.responses" />
+      <recent name="com.example.electroplan_backend.dto.requests" />
+      <recent name="com.example.electroplan_backend.controllers" />
+      <recent name="com.example.electroplan_backend.repositories" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ElectroplanBackendApplication">
+    <configuration name="ElectroplanBackendApplication | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/ElectroplanBackendApplication.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="ElectroplanBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="electroplan-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.electroplan_backend.ElectroplanBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.ElectroplanBackendApplication | #1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9595cc05-0672-42cb-88c2-93397df66d5e" name="Changes" comment="" />
+      <created>1744459281654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744459281654</updated>
+      <workItem from="1744459282719" duration="358000" />
+      <workItem from="1744459647706" duration="9220000" />
+      <workItem from="1744626387894" duration="5949000" />
+      <workItem from="1744636430287" duration="858000" />
+      <workItem from="1744823964255" duration="40000" />
+      <workItem from="1744824064632" duration="7000" />
+      <workItem from="1744883893504" duration="24145000" />
+      <workItem from="1745148195655" duration="28842000" />
+      <workItem from="1747151881463" duration="1829000" />
+      <workItem from="1747865942466" duration="537000" />
+      <workItem from="1747916185899" duration="315000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+</project>

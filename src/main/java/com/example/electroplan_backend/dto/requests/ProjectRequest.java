@@ -1,31 +1,26 @@
 package com.example.electroplan_backend.dto.requests;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 public class ProjectRequest {
+    private Long id;
 
-    private String displayName;
+    @NotBlank(message = "Project name is required")
+    private String name;
 
-    private Long sellerId;
+    @NotBlank(message = "Customer name is required")
+    private String customer;
 
-    private String bodyType;
+    @NotNull(message = "Project data is required")
+    private JsonNode data;
 
-    private Integer price;
-
-    private String manufacturer;
-
-    private String vinCode;
-
-    private Boolean wasInAccident;
-
-    private Boolean isTrade;
-
-    private Boolean isAvailable;
-
-    private Integer mileage;
-
-    private String technicalCondition;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

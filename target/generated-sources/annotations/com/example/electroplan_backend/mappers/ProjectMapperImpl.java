@@ -9,54 +9,61 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-18T18:48:37+0300",
+    date = "2025-05-22T15:24:59+0300",
     comments = "version: 1.6.0, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
 @Component
 public class ProjectMapperImpl implements ProjectMapper {
 
     @Override
-    public ProjectEntity toProjectEntity(ProjectRequest carRequest) {
-        if ( carRequest == null ) {
+    public ProjectEntity toProjectEntity(ProjectRequest projectRequest) {
+        if ( projectRequest == null ) {
             return null;
         }
 
         ProjectEntity projectEntity = new ProjectEntity();
 
+        projectEntity.setId( projectRequest.getId() );
+        projectEntity.setName( projectRequest.getName() );
+        projectEntity.setCustomer( projectRequest.getCustomer() );
+        projectEntity.setData( projectRequest.getData() );
+        projectEntity.setCreatedAt( projectRequest.getCreatedAt() );
+        projectEntity.setUpdatedAt( projectRequest.getUpdatedAt() );
+
         return projectEntity;
     }
 
     @Override
-    public ProjectResponse toProjectResponse(ProjectEntity carEntity) {
-        if ( carEntity == null ) {
+    public ProjectResponse toProjectResponse(ProjectEntity projectEntity) {
+        if ( projectEntity == null ) {
             return null;
         }
 
         ProjectResponse.ProjectResponseBuilder projectResponse = ProjectResponse.builder();
 
-        projectResponse.id( carEntity.getId() );
-        projectResponse.title( carEntity.getTitle() );
-        projectResponse.customer( carEntity.getCustomer() );
-        projectResponse.description( carEntity.getDescription() );
-        projectResponse.address( carEntity.getAddress() );
-        projectResponse.createdAt( carEntity.getCreatedAt() );
-        projectResponse.updatedAt( carEntity.getUpdatedAt() );
+        projectResponse.id( projectEntity.getId() );
+        projectResponse.name( projectEntity.getName() );
+        projectResponse.customer( projectEntity.getCustomer() );
+        projectResponse.data( projectEntity.getData() );
+        projectResponse.createdAt( projectEntity.getCreatedAt() );
+        projectResponse.updatedAt( projectEntity.getUpdatedAt() );
 
         return projectResponse.build();
     }
 
     @Override
-    public ProjectShortResponse toProjectShortResponse(ProjectEntity carEntity) {
-        if ( carEntity == null ) {
+    public ProjectShortResponse toProjectShortResponse(ProjectEntity projectEntity) {
+        if ( projectEntity == null ) {
             return null;
         }
 
-        ProjectShortResponse projectShortResponse = new ProjectShortResponse();
+        ProjectShortResponse.ProjectShortResponseBuilder projectShortResponse = ProjectShortResponse.builder();
 
-        projectShortResponse.setId( carEntity.getId() );
-        projectShortResponse.setTitle( carEntity.getTitle() );
-        projectShortResponse.setCustomer( carEntity.getCustomer() );
+        projectShortResponse.name( projectEntity.getName() );
+        projectShortResponse.customer( projectEntity.getCustomer() );
+        projectShortResponse.updatedAt( projectEntity.getUpdatedAt() );
+        projectShortResponse.id( projectEntity.getId() );
 
-        return projectShortResponse;
+        return projectShortResponse.build();
     }
 }

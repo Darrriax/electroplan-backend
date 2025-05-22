@@ -1,9 +1,12 @@
 package com.example.electroplan_backend.dto.entities;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 
@@ -18,20 +21,18 @@ public class ProjectEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
-
-    @Column(name = "title", nullable = false, length = 255)
-    private String title;
+    @Column(name = "name", nullable = false, length = 255)
+    private String name;
 
     @Column(name = "customer", nullable = false, length = 100)
     private String customer;
 
-    @Column(name = "description", nullable = false, length = 255)
-    private String description;
+    @Column(name = "data", columnDefinition = "jsonb")
+    @JdbcTypeCode(SqlTypes.JSON)
+    private JsonNode data;
 
-    @Column(name = "address", nullable = false, unique = true, length = 255)
-    private String address;
+    @Column(name = "user_email", nullable = false)
+    private String userEmail;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
